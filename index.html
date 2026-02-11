@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhitines Test 💘</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-love">
+
+  <div class="hearts-bg" id="heartsBg"></div>
+
+  <div class="container">
+    <div class="card">
+      <h1 class="title">Welcome to the Abhitines Test 💘</h1>
+      <p class="subtitle">Answer all 5 correctly to unlock the Valentine question 😏</p>
+
+      <div class="progress" id="progressText">Question 1/5</div>
+
+      <div class="question-box">
+        <h2 id="questionText" class="question"></h2>
+        <div id="answers" class="answers"></div>
+      </div>
+
+      <div id="message" class="message"></div>
+
+      <button id="nextBtn" class="btn hidden">Next ➜</button>
+
+      <!-- Hidden easter egg -->
+      <div id="easterEgg" class="easter hidden">
+        I love you baby 💘
+      </div>
+
+      <p class="tiny-note">(psst… there’s an easter egg 😏)</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    initFloatingHearts();
+    initQuiz();
+    initEasterEgg();
+  </script>
+</body>
+</html>
