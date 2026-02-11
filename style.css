@@ -1,0 +1,285 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", system-ui, -apple-system, Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: white;
+  position: relative;
+}
+
+.bg-love {
+  background: radial-gradient(circle at top, #ff6fb7, #ff2d6f, #5b0b2e);
+}
+
+.bg-valentine {
+  background: linear-gradient(135deg, #ff3d77, #7b1fa2);
+}
+
+.bg-final {
+  background: linear-gradient(135deg, #ff2d6f, #111);
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  position: relative;
+  z-index: 2;
+}
+
+.card {
+  width: 100%;
+  max-width: 560px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  border-radius: 22px;
+  padding: 26px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.15);
+  text-align: center;
+  position: relative;
+}
+
+.val-card {
+  max-width: 620px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.title.big {
+  font-size: 34px;
+}
+
+.subtitle {
+  font-size: 15px;
+  opacity: 0.95;
+  margin-bottom: 18px;
+  line-height: 1.4;
+}
+
+.subtitle.tiny {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.highlight {
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.progress {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.question {
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+
+.answers {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.answer-btn {
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.10);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.12s ease;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.answer-btn:hover {
+  transform: scale(1.02);
+  background: rgba(255,255,255,0.18);
+}
+
+.message {
+  min-height: 22px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  font-size: 15px;
+}
+
+.btn {
+  padding: 14px 18px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 16px;
+  background: white;
+  color: #ff2d6f;
+  transition: transform 0.15s ease;
+}
+
+.btn:hover {
+  transform: scale(1.04);
+}
+
+.btn-row {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.btn.yes {
+  background: #fff;
+  color: #ff2d6f;
+}
+
+.btn.no {
+  background: rgba(0,0,0,0.35);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+  position: relative;
+}
+
+.hidden {
+  display: none;
+}
+
+.tiny-note {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 12px;
+}
+
+/* Plan */
+.plan {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0 20px;
+  text-align: left;
+}
+
+.plan-item {
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.14);
+  font-weight: 700;
+}
+
+/* Screenshot card */
+.screenshot-box {
+  margin-top: 14px;
+}
+
+.proof {
+  margin-top: 10px;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.18);
+  font-weight: 900;
+}
+
+/* Airplane */
+.plane {
+  position: absolute;
+  top: 18%;
+  left: -60px;
+  font-size: 38px;
+  animation: fly 6s linear infinite;
+  z-index: 5;
+}
+
+@keyframes fly {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(100vw + 120px)); }
+}
+
+/* Confetti */
+.confetti {
+  position: fixed;
+  top: -20px;
+  width: 10px;
+  height: 14px;
+  opacity: 0.9;
+  border-radius: 2px;
+  animation: fall 2.2s linear forwards;
+  z-index: 9999;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* Loading heart animation */
+.loader-heart {
+  font-size: 54px;
+  margin: 18px 0;
+  animation: pulse 0.8s infinite alternate;
+}
+
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.25); }
+}
+
+/* Easter egg */
+.easter {
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 18px;
+  font-weight: 900;
+  font-size: 18px;
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.18);
+  animation: popIn 0.35s ease;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Floating hearts background */
+.hearts-bg {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.floating-heart {
+  position: absolute;
+  bottom: -40px;
+  font-size: 18px;
+  opacity: 0.65;
+  animation: floatUp linear forwards;
+  filter: blur(0.2px);
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
