@@ -8,6 +8,7 @@
 </head>
 <body class="bg-love">
 
+  <!-- Floating Hearts Background -->
   <div class="hearts-bg" id="heartsBg"></div>
 
   <div class="container">
@@ -36,14 +37,14 @@
           <h2 class="modal-title">💌 A letter for you</h2>
           <p class="modal-text">
             I love you cutie, I never thought I had to ask my OWN GF TO BE MY VALENTINE BUT HERE WE ARE.
-            SINCE youre angry cat, hope this small thing I did for you willl be memorable.
+            SINCE you're angry cat, hope this small thing I did for you will be memorable.
             See you on 24th!
           </p>
           <button id="closeModal" class="btn big">OKAY BABE 💘</button>
         </div>
       </div>
 
-      <!-- Hidden easter egg -->
+      <!-- Hidden Easter Egg -->
       <div id="easterEgg" class="easter hidden">
         I love you cutie 💘
       </div>
@@ -52,33 +53,14 @@
     </div>
   </div>
 
+  <!-- Scripts -->
   <script src="script.js"></script>
   <script>
+    // Initialize all features
     initFloatingHearts();
     initQuiz();
+    initLoveModal();
     initEasterEgg();
-
-    // FORCE LOVE LETTER MODAL TO STAY HIDDEN ON LOAD
-    const loveModal = document.getElementById("loveModal");
-    const closeModal = document.getElementById("closeModal");
-    if (loveModal) loveModal.classList.add("hidden");
-
-    // CLOSE BUTTON FUNCTION
-    if (closeModal && loveModal) {
-      closeModal.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        loveModal.classList.add("hidden");
-      });
-    }
-
-    // OPTIONAL: SHOW modal only when clicking Premium button
-    const premiumBtn = document.getElementById("premiumBtn");
-    if (premiumBtn && loveModal) {
-      premiumBtn.addEventListener("click", () => {
-        loveModal.classList.remove("hidden");
-      });
-    }
   </script>
 </body>
 </html>
