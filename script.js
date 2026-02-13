@@ -115,10 +115,43 @@ function initQuiz() {
   const nextBtn = document.getElementById("nextBtn");
   const progressText = document.getElementById("progressText");
 
+  // Premium features button + modal
+  const premiumBtn = document.getElementById("premiumBtn");
+  const loveModal = document.getElementById("loveModal");
+  const closeModal = document.getElementById("closeModal");
+
+  // -----------------------------
+  // Premium button logic
+  // -----------------------------
+  if (premiumBtn && loveModal) {
+    premiumBtn.addEventListener("click", () => {
+      loveModal.classList.remove("hidden");
+      fireConfetti(80);
+    });
+  }
+
+  if (closeModal && loveModal) {
+    closeModal.addEventListener("click", () => {
+      loveModal.classList.add("hidden");
+    });
+  }
+
+  // close modal if click outside box
+  if (loveModal) {
+    loveModal.addEventListener("click", (e) => {
+      if (e.target === loveModal) {
+        loveModal.classList.add("hidden");
+      }
+    });
+  }
+
   function renderQuestion() {
     locked = false;
     messageDiv.textContent = "";
     nextBtn.classList.add("hidden");
+
+    // Hide premium button until last question is done
+    if (premiumBtn) premiumBtn.classList.add("hidden");
 
     progressText.textContent = `Question ${current + 1}/${questions.length}`;
     questionText.textContent = questions[current].q;
@@ -145,8 +178,11 @@ function initQuiz() {
       messageDiv.style.color = "#d7ffcf";
 
       if (current === questions.length - 1) {
-        nextBtn.textContent = "Unlock Valentine Page 💖";
+        nextBtn.textContent = "Unlock Memories 💖";
         nextBtn.classList.remove("hidden");
+
+        // show premium secret button ONLY at the end
+        if (premiumBtn) premiumBtn.classList.remove("hidden");
       } else {
         nextBtn.textContent = "Next ➜";
         nextBtn.classList.remove("hidden");
@@ -218,6 +254,8 @@ function initValentinePage() {
 // -----------------------------
 function initRevealPage() {
   const revealBtn = document.getElementById("revealBtn");
+  if (!revealBtn) return;
+
   revealBtn.addEventListener("click", () => {
     window.location.href = "final.html";
   });
@@ -260,7 +298,7 @@ function initEasterEgg() {
   document.addEventListener("click", () => {
     clicks++;
 
-    if (clicks === 7) {
+    if (clicks === 5) {
       egg.classList.remove("hidden");
       fireConfetti(60);
 
