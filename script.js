@@ -5,7 +5,6 @@ function initFloatingHearts() {
   const holder = document.getElementById("heartsBg");
   if (!holder) return;
 
-  // Prevent double init if called multiple times
   if (holder.dataset.started === "true") return;
   holder.dataset.started = "true";
 
@@ -14,32 +13,20 @@ function initFloatingHearts() {
     heart.className = "floating-heart";
     heart.textContent = "❤️";
 
-    // random horizontal position
     heart.style.left = Math.random() * 100 + "vw";
-
-    // random size
     const size = Math.random() * 18 + 10;
     heart.style.fontSize = size + "px";
-
-    // random speed
     const duration = Math.random() * 4 + 6;
     heart.style.animationDuration = duration + "s";
-
-    // random drift
     const drift = Math.random() * 80 - 40;
     heart.style.transform = `translateX(${drift}px)`;
 
     holder.appendChild(heart);
 
-    setTimeout(() => {
-      heart.remove();
-    }, duration * 1000);
+    setTimeout(() => heart.remove(), duration * 1000);
   }
 
-  // spawn hearts repeatedly
   setInterval(spawnHeart, 350);
-
-  // initial burst
   for (let i = 0; i < 10; i++) {
     setTimeout(spawnHeart, i * 120);
   }
@@ -93,9 +80,7 @@ function initQuiz() {
     },
     {
       q: "Am I the best boyfriend ever?",
-      options: [
-        "YES OBVIOUSLY 😤💘"
-      ],
+      options: ["YES OBVIOUSLY 😤💘"],
       correct: 0
     }
   ];
@@ -115,33 +100,23 @@ function initQuiz() {
   const nextBtn = document.getElementById("nextBtn");
   const progressText = document.getElementById("progressText");
 
-  // Premium features button + modal
   const premiumBtn = document.getElementById("premiumBtn");
   const loveModal = document.getElementById("loveModal");
   const closeModal = document.getElementById("closeModal");
 
-  // -----------------------------
-  // Premium button logic
-  // -----------------------------
+  // Premium button & modal logic
   if (premiumBtn && loveModal) {
     premiumBtn.addEventListener("click", () => {
       loveModal.classList.remove("hidden");
       fireConfetti(80);
     });
   }
-
   if (closeModal && loveModal) {
-    closeModal.addEventListener("click", () => {
-      loveModal.classList.add("hidden");
-    });
+    closeModal.addEventListener("click", () => loveModal.classList.add("hidden"));
   }
-
-  // close modal if click outside box
   if (loveModal) {
-    loveModal.addEventListener("click", (e) => {
-      if (e.target === loveModal) {
-        loveModal.classList.add("hidden");
-      }
+    loveModal.addEventListener("click", e => {
+      if (e.target === loveModal) loveModal.classList.add("hidden");
     });
   }
 
@@ -149,8 +124,6 @@ function initQuiz() {
     locked = false;
     messageDiv.textContent = "";
     nextBtn.classList.add("hidden");
-
-    // Hide premium button until last question is done
     if (premiumBtn) premiumBtn.classList.add("hidden");
 
     progressText.textContent = `Question ${current + 1}/${questions.length}`;
@@ -181,8 +154,10 @@ function initQuiz() {
         nextBtn.textContent = "Unlock Memories 💖";
         nextBtn.classList.remove("hidden");
 
-        // show premium secret button ONLY at the end
-        if (premiumBtn) premiumBtn.classList.remove("hidden");
+        // Show premium button at the end
+        if (premiumBtn) {
+          setTimeout(() => premiumBtn.classList.remove("hidden"), 500);
+        }
       } else {
         nextBtn.textContent = "Next ➜";
         nextBtn.classList.remove("hidden");
@@ -191,11 +166,7 @@ function initQuiz() {
       const insult = insults[Math.floor(Math.random() * insults.length)];
       messageDiv.textContent = insult;
       messageDiv.style.color = "#ffd1d1";
-
-      // allow retry
-      setTimeout(() => {
-        locked = false;
-      }, 600);
+      setTimeout(() => { locked = false; }, 600);
     }
   }
 
@@ -219,11 +190,12 @@ function initValentinePage() {
   const noBtn = document.getElementById("noBtn");
   const yesBtn = document.getElementById("yesBtn");
 
+  if (!noBtn || !yesBtn) return;
+
   function moveNoButton() {
     const padding = 20;
     const vw = window.innerWidth;
     const vh = window.innerHeight;
-
     const btnRect = noBtn.getBoundingClientRect();
     const btnW = btnRect.width;
     const btnH = btnRect.height;
@@ -242,9 +214,7 @@ function initValentinePage() {
 
   yesBtn.addEventListener("click", () => {
     fireConfetti(140);
-    setTimeout(() => {
-      window.location.href = "reveal.html";
-    }, 900);
+    setTimeout(() => window.location.href = "reveal.html", 900);
   });
 }
 
@@ -269,26 +239,21 @@ function fireConfetti(count = 80) {
   for (let i = 0; i < count; i++) {
     const c = document.createElement("div");
     c.className = "confetti";
-
     c.style.left = Math.random() * 100 + "vw";
-
     const size = Math.random() * 8 + 6;
     c.style.width = size + "px";
     c.style.height = size * 1.2 + "px";
-
     c.style.animationDuration = (Math.random() * 1.2 + 1.6) + "s";
-
     c.style.background = `hsl(${Math.random() * 360}, 90%, 65%)`;
 
     document.body.appendChild(c);
-
     setTimeout(() => c.remove(), 2500);
   }
 }
 
 
 // -----------------------------
-// EASTER EGG (click 5 times anywhere)
+// EASTER EGG
 // -----------------------------
 function initEasterEgg() {
   let clicks = 0;
@@ -297,15 +262,10 @@ function initEasterEgg() {
 
   document.addEventListener("click", () => {
     clicks++;
-
     if (clicks === 7) {
       egg.classList.remove("hidden");
       fireConfetti(60);
-
-      setTimeout(() => {
-        egg.classList.add("hidden");
-        clicks = 0;
-      }, 4500);
+      setTimeout(() => { egg.classList.add("hidden"); clicks = 0; }, 4500);
     }
   });
 }
