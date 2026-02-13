@@ -165,7 +165,7 @@ function initQuiz() {
 
   nextBtn.addEventListener("click", () => {
     if (current === questions.length - 1) {
-      window.location.href = "valentine.html";
+      window.location.href = "memories.html";
       return;
     }
     current++;
