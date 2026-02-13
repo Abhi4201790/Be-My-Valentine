@@ -259,8 +259,6 @@ function initEasterEgg() {
 
   document.addEventListener("click", () => {
     clicks++;
-
-    if (clicks === 5) {
     if (clicks === 7) {
       egg.classList.remove("hidden");
       fireConfetti(60);
