@@ -136,12 +136,6 @@ body {
   transform: scale(1.04);
 }
 
-.btn.big {
-  padding: 16px 22px;
-  border-radius: 18px;
-  font-size: 17px;
-}
-
 .btn-row {
   display: flex;
   gap: 14px;
@@ -172,9 +166,7 @@ body {
   margin-top: 12px;
 }
 
-/* -----------------------
-   PLAN
------------------------- */
+/* Plan */
 .plan {
   display: grid;
   gap: 10px;
@@ -190,9 +182,7 @@ body {
   font-weight: 700;
 }
 
-/* -----------------------
-   Screenshot card
------------------------- */
+/* Screenshot card */
 .screenshot-box {
   margin-top: 14px;
 }
@@ -206,9 +196,7 @@ body {
   font-weight: 900;
 }
 
-/* -----------------------
-   Airplane
------------------------- */
+/* Airplane */
 .plane {
   position: absolute;
   top: 18%;
@@ -223,9 +211,7 @@ body {
   100% { transform: translateX(calc(100vw + 120px)); }
 }
 
-/* -----------------------
-   Confetti
------------------------- */
+/* Confetti */
 .confetti {
   position: fixed;
   top: -20px;
@@ -244,9 +230,7 @@ body {
   }
 }
 
-/* -----------------------
-   Loading heart animation
------------------------- */
+/* Loading heart animation */
 .loader-heart {
   font-size: 54px;
   margin: 18px 0;
@@ -258,9 +242,7 @@ body {
   to { transform: scale(1.25); }
 }
 
-/* -----------------------
-   Easter egg
------------------------- */
+/* Easter egg */
 .easter {
   margin-top: 16px;
   padding: 14px;
@@ -277,9 +259,7 @@ body {
   to { transform: scale(1); opacity: 1; }
 }
 
-/* -----------------------
-   Floating hearts background
------------------------- */
+/* Floating hearts background */
 .hearts-bg {
   position: fixed;
   inset: 0;
@@ -363,56 +343,4 @@ body {
 .dot.active {
   background: rgba(255,255,255,0.95);
   transform: scale(1.2);
-}
-
-/* -----------------------
-   PREMIUM BUTTON + LOVE LETTER MODAL
------------------------- */
-.premium {
-  margin-top: 12px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: white;
-}
-
-.premium:hover {
-  background: rgba(255,255,255,0.18);
-}
-
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  padding: 18px;
-}
-
-.modal-box {
-  width: 100%;
-  max-width: 520px;
-  border-radius: 22px;
-  padding: 22px;
-  text-align: center;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.2);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
-  animation: popIn 0.25s ease;
-}
-
-.modal-title {
-  font-size: 22px;
-  font-weight: 900;
-  margin-bottom: 12px;
-}
-
-.modal-text {
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 700;
-  opacity: 0.95;
-  margin-bottom: 18px;
 }
