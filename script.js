@@ -166,7 +166,6 @@ function initQuiz() {
   nextBtn.addEventListener("click", () => {
     if (current === questions.length - 1) {
       window.location.href = "valentine.html";
-      window.location.href = "memories.html";
       return;
     }
     current++;
@@ -261,6 +260,7 @@ function initEasterEgg() {
   document.addEventListener("click", () => {
     clicks++;
 
+    if (clicks === 5) {
     if (clicks === 7) {
       egg.classList.remove("hidden");
       fireConfetti(60);
