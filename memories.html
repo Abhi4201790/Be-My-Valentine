@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memories 💘</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-love">
+
+  <div class="container">
+    <div class="card slideshow-card">
+
+      <h1 class="title">Before the question… 💘</h1>
+      <p class="subtitle">Let’s relive our best moments 😭</p>
+
+      <div class="slideshow">
+        <img id="slideImage" src="Memory1.jpeg" alt="memory" />
+        <div id="slideCaption" class="caption">first kiss</div>
+      </div>
+
+      <div class="slide-controls">
+        <button class="btn" onclick="prevSlide()">⬅ Prev</button>
+        <button class="btn" onclick="nextSlide()">Next ➜</button>
+      </div>
+
+      <div id="dots" class="dots"></div>
+
+      <button class="btn big" id="continueBtn" onclick="goNext()" style="margin-top:18px;">
+        Continue 😏
+      </button>
+
+    </div>
+  </div>
+
+  <script>
+    const slides = [
+      { img: "Memory1.jpeg", caption: "first kiss" },
+      { img: "Memory2.jpeg", caption: "first 24th" },
+      { img: "Memory3.jpeg", caption: "first concert" },
+      { img: "Memory4.jpeg", caption: "first tattoo" },
+      { img: "Memory5.jpeg", caption: "first birthday" },
+      { img: "Memory6.jpeg", caption: "I did not even notice it but there is a letter S on my shoe" },
+      { img: "Memory7.jpeg", caption: "First valentines" }
+    ];
+
+    let current = 0;
+
+    const imgEl = document.getElementById("slideImage");
+    const capEl = document.getElementById("slideCaption");
+    const dotsEl = document.getElementById("dots");
+
+    function renderDots() {
+      dotsEl.innerHTML = "";
+      slides.forEach((_, i) => {
+        const dot = document.createElement("span");
+        dot.className = "dot" + (i === current ? " active" : "");
+        dot.onclick = () => goToSlide(i);
+        dotsEl.appendChild(dot);
+      });
+    }
+
+    function updateSlide() {
+      imgEl.src = slides[current].img;
+      capEl.textContent = slides[current].caption;
+      renderDots();
+
+      const btn = document.getElementById("continueBtn");
+      if (current === slides.length - 1) {
+        btn.textContent = "Now the real question… 💘";
+      } else {
+        btn.textContent = "Continue 😏";
+      }
+    }
+
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      updateSlide();
+    }
+
+    function prevSlide() {
+      current = (current - 1 + slides.length) % slides.length;
+      updateSlide();
+    }
+
+    function goToSlide(i) {
+      current = i;
+      updateSlide();
+    }
+
+    function goNext() {
+      window.location.href = "valentine.html";
+    }
+
+    updateSlide();
+  </script>
+
+</body>
+</html>
